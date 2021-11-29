@@ -21,8 +21,30 @@ Search variables  | Ctrl+V     (V for variable) | --variables
 
 ### vscode
 
-|     |               |
-|:----|:--------------|
-| ⇧⌃g | ソースコントロール切替 |
-| ⇧⌘e | エクスプローラ切替   |
-| ⌘ \ | サイドバーのトグル     |
+|     |                    |
+|:----|:-------------------|
+| ⇧⌃g | ソースコントロール切替      |
+| ⇧⌘e | エクスプローラ切替        |
+| ⌘ \ | サイドバーのトグル          |
+| ⌥⌘a | brasel: 括弧選択   |
+| ⌥a  | brasel: 括弧内選択 |
+| ⌥z  | brasel: 選択解除   |
+| ⇧⌘d | 行を複製            |
+| ⇧⌘k | 行を削除            |
+
+[Bracket Select - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=chunsen.bracket-select)
+
+### [Karabiner-Elements 設定項目](https://gist.github.com/atu4403/683f580f8464a0b9f8eefd1e13300604)
+
+Hyper: capslock
+
+|         |                   |
+|:--------|:------------------|
+| Hyper+i | ↑                 |
+| Hyperj  | ←                 |
+| Hyper+k | ↓                 |
+| Hyper+l | →                 |
+| Hyper+n | カーソルの左を全消し     |
+| Hyper+m | delete            |
+| Hyper+M | カーソルの左を全消し     |
+| Hyper+, | カーソルの右を１文字消去 |
