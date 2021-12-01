@@ -1,6 +1,4 @@
-# how to git log case_01
-
-## `foo.md`と一緒にコミットされた過去の有るファイルをリスト化する方法
+# `foo.md`と一緒にコミットされた過去の有るファイルをリスト化する方法
 
 `foo.md`と`bar.png`を同じコミットに含めていた過去があるとする。
 
@@ -20,7 +18,7 @@
 
 そのような前提の中、`foo.md`と一緒にコミットされた過去の有るファイルをリスト化する方法。
 
-### 1. file foo.mdに関するコミットの抽出
+## 1. file foo.mdに関するコミットの抽出
 
 ```bash
 # hash  7桁
@@ -29,7 +27,7 @@ git log --format=%h -- foo.md
 git log --format=%H -- foo.md
 ```
 
-### 2. ハッシュ指定でファイル名のみ取り出す
+## 2. ハッシュ指定でファイル名のみ取り出す
 
 コミットに含まれているfileすべてが出てくる
 
@@ -38,7 +36,7 @@ git log --format=%H -- foo.md
 git log --name-only --oneline sha1 -1
 ```
 
-### 3. 1をloopして2で抽出する
+## 3. 1をloopして2で抽出する
 
 fishのscript例
 
