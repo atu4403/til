@@ -1,4 +1,6 @@
-# [fishtape](https://github.com/jorgebucaran/fishtape)
+# fishtape
+
+[fishtape](https://github.com/jorgebucaran/fishtape)
 
 fishのテスティングフレームワーク
 
