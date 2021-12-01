@@ -79,6 +79,7 @@ defaultのキー設定。
 ## [Markdown Table Maker - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=hellorusk.markdown-table-maker)
 
 ☁️ 1,130
+
 markdownの表をカンタンに作成。
 
 ![alt](https://user-images.githubusercontent.com/36184621/56092677-e6967b00-5ef9-11e9-8487-96bd057549df.gif)
