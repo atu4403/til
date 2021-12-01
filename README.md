@@ -34,10 +34,12 @@ macos
 - [/dev/nullについて](shell-fish/devnull.md)
 - [fish-ghq](shell-fish/fish-ghq.md)
 - [fishtape](shell-fish/fishtape.md)
+- [TILのREADMEを自動作成するfish scriptを書いた](shell-fish/howto-make-readme-with-til.md)
 - [るびきちさん](shell-fish/rubikitch.md)
 - [set (fish 3.3.1)](shell-fish/set.md)
 
 ### shortcut
 
+- [shortcuts - fish shell](shortcut/fish.md)
 - [shortcuts - macos](shortcut/macos.md)
 - [shortcuts - vscode](shortcut/vscode.md)
