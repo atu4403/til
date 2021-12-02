@@ -22,7 +22,8 @@
 - 記事はmarkdown形式で書きます
   - [markdownlint](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md)に極力準拠します。極力です
   - 最初の行は`# <title>`で書き、2行目は空行にします
-  - この`<title>`は内容がわかるように付けます(READMEに反映するため)
-  - 日本語でも英語でもOK
-  - リンク（`[]()`で囲む）のは禁止
+    - この`<title>`は内容がわかるように付けます(READMEに反映するため)
+    - 日本語でも英語でもOK
+    - リンク（`[]()`で囲む）のは禁止
+    - 未完成の記事は`# WIP`とします
 - ただし、問題が有るようならIssueを建てて検討した上でルールを変更する可能性があります
