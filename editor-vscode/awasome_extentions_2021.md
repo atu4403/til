@@ -103,3 +103,40 @@ markdownの表をカンタンに整形。設定の`format on save`を有効化�
 ☁️ 145,515
 
 ![alt](https://raw.githubusercontent.com/mushanshitiancai/vscode-paste-image/master/res/vscode-paste-image.gif)
+
+## [markdownlint - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+
+☁  3,125,461
+
+markdownのリンターです。300万ダウンロードの有名な拡張ですが加えさせてください。
+
+リンター、つまりmarkdownの文法におかしな所があったら警告してくれるツールです。
+
+私自身「markdownにリンターいらないよね」と思っていたのですが、以下のルールにより考えが変わりました。
+
+[MD014 - Dollar signs used before commands without showing output](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md014---dollar-signs-used-before-commands-without-showing-output)
+
+40以上あるルールの一つです。
+
+```bash
+$ ls
+```
+
+これはルール違反になり警告が出ます。`$`はプロンプトであり、このような記述には不要です。
+
+GitHubやqiitaではコードブロックの右上にコピーできるボタンが付いています。ユーザー(記事を見に来た人)はコードブロックをコピーして自分の環境にペーストするという需要があります。しかし`$`は実行するには不要であり、ユーザーには取り除く手間が生じます。
+
+実際に色んな方の記事を見ていると、コピペしにくい`$`が付いた例が多く見られます。
+
+しかし以下の場合はルール違反にはなりません。入力と出力が明確になるので`$`は必要だからです。
+
+```bash
+$ ls
+foo bar
+$ cat foo
+Hello world
+$ cat bar
+baz
+```
+
+このような悪習を防ぐためにも、markdownを扱う人には是非入れてほしい機能拡張です。
