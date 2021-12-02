@@ -3,7 +3,9 @@
 - macosでの操作です。他のOSでの動作は保証しません。
 - optキーが反応しない場合はターミナルエミュレータの設定が必要な場合があります
   - [MacのiTerm2でaltキーをmetaとして認識させる方法 - Qiita](https://qiita.com/DQNEO/items/524724982ef49beb7f56)
-  - emacsと同じだったり違ったりします
+- emacsと同じだったり違ったりします
+
+macのキー記号
 
 - ⌘ - cmd
 - ⇧ - shift
