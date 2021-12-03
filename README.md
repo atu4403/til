@@ -35,8 +35,10 @@ macos
 - [fish-ghq](shell-fish/fish-ghq.md)
 - [fishtape](shell-fish/fishtape.md)
 - [TILのREADMEを自動作成するfish scriptを書いた](shell-fish/howto-make-readme-with-til.md)
+- [my functions](shell-fish/my-functions.md)
 - [るびきちさん](shell-fish/rubikitch.md)
 - [set (fish 3.3.1)](shell-fish/set.md)
+- [fish - ディレクトリを表す変数の調査](shell-fish/study-of-fish-directory.md)
 
 ### shortcut
 
