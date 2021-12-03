@@ -107,8 +107,6 @@ fishシェルに`fish_config`と打ち込むと、ブラウザでfishの設定�
 
 ## 補完の設定
 
-TODO: 右で確定、alt右で途中まで確定
-
 fishシェルから`git add -`と打ち、`tab`キーを押してみてください。
 
 ```txt
@@ -129,6 +127,8 @@ fishシェルから`git add -`と打ち、`tab`キーを押してみてくださ
 ```
 
 補完候補が出てきました。そうなんです。fishは何も設定しなくてもgitの補完ができるんです。
+
+<!-- 上下キーで選択、→で確定、alt+→で次の単語まで確定です。TODO: -->
 
 他にどんな補完設定が最初から使えるか確認するには以下のコマンドを打ちます。
 
@@ -295,23 +295,6 @@ end
 
 zshでは色々とhistoryの設定がありました。
 
-- HISTFILEの場所
-  - `$__fish_user_data_dir/fish_history`
-- 保存数
-  - 約26万行 ※1
-- 重複を許可しない
-  - ○
-- スペースで始まるものはhistoryに追加しない
-  - ○
-- すぐhistoryに追加する
-  - ×
-- プロセス間での共用
-  - ×
-- 追加するコマンドが過去にあったら古い方を削除
-  - ○
-- histroryコマンドは除外
-  ×
-
 |                   |                                      |
 |:------------------|:-------------------------------------|
 | HISTFILEの場所     | `$__fish_user_data_dir/fish_history` |
@@ -359,7 +342,7 @@ fishは補完候補を薄い色で表示します。また、入力中のコマ�
 
 ### `cd`したら`la`する
 
-コマンドからfunction作成します。私の場合は`exa`コマンドで設定しました。
+コマンドからfunctionコマンドで作成します。私の場合は`exa`コマンドで設定しました。
 
 ```bash
 > function cd
@@ -371,7 +354,19 @@ fishは補完候補を薄い色で表示します。また、入力中のコマ�
 
 ### その他環境変数の設定
 
-少々面倒ですが`.zshrc`や`.bashrc`から拾ってきて書き換えるしかなさそうです。
+`.zshrc`や`.bashrc`からワンライナーで抜き出したものを`config.fish`にコピペします。
+
+```bash
+cat ~/.zsh/.zshrc| sed -n -e "s/^export/set -x/p"|tr = ' '|grep -v ":\$PATH"
+```
+
+`~/.zshrc`の部分は`~/.bashrc`等、環境に応じて置き換えてください。
+
+但し`CLICOLOR`や `LS_COLORS`等の環境変数がfishでどのように作用するのか、fish規定の変数ではないのかなど`echo $CLICOLOR`のようにして調べたほうが良いと思います。
+
+`DOCKER_CERT_PATH`等はDOCKERで使われる環境変数だとわかるので問題ないと思います。
+
+手作業でする場合は以下のように置き換えます。
 
 ```bash
 # zshの例
@@ -393,7 +388,24 @@ set -x DOCKER_MACHINE_NAME "default"
 
 ### eval
 
-これまた面倒ですが`.zshrc`や`.bashrc`から拾ってきて書き換えます。
+```bash
+cat ~/.zshrc| grep eval|sed -E 's/^.*\$\(([^()]*)\).*$/\1 | source/g'
+```
+
+`.zshrc`や`.bashrc`のパスは環境に応じて書き換えてください。以下のように出力されるので`~/.config/fish/config.fish`にコピペします。
+
+```bash
+starship init zsh | source
+rbenv init - | source
+pyenv init - | source
+goenv init - | source
+```
+
+但し、各々がfishに対応しているとは限りません。例えば`starship init zsh | source`は見ての通りzsh用の設定読み込みなので`zsh`を`fish`に書き換える必要があります。
+
+他の`〇〇 init -`もfish未対応ならエラーが出ますので注意してください。
+
+手作業で行うなら以下の手順です。
 
 ```bash
 # zshの例
@@ -406,5 +418,65 @@ goenv init - | source
 2. pipeで`source`に繋ぐ
 3. `~/.config/fish/config.fish`に貼り付け
 
+### 条件付きEDITOR設定
 
-TODO: EDITORにMacVim設定
+私の`.zshrc`にこんな記述がありました。
+
+```bash
+case "$(uname)" in
+    Darwin)
+        if [[ -d /Applications/MacVim.app ]]; then
+            export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+        fi
+        ;;
+    *) ;;
+esac
+```
+
+OSがDarwin(macos)で、`Applications`内に`MacVim`が存在するなら`$EDITOR`[^4]をMacVimにする、というコードです。
+
+`case`で始まって`esac`で閉じるとか謎の二重カッコとか謎の顔文字とか、シェルスクリプトを敬遠したくなる要素がたっぷりです。
+
+しかしfishで書き直してみたら案外アッサリ書けました。
+
+```bash
+ switch (uname)
+     case Darwin
+         if test -d /Applications/Emacs.app
+             set -gx EDITOR /Applications/Emacs.app/Contents/MacOS/Emacs
+         end
+ end
+```
+
+(コード内でエディタ名が変わっていますが宗教上の配慮です)
+
+zsh時代はコピペで済ませてましたが、fishは親しみやすいので自分で書く楽しさがあります。ぜひチャレンジしてみてください！
+
+なお、このコードは`~/.config/fish/conf.d/setup_editor.fish`というファイルを作成してその中に入れています。
+
+zshだと設定を別ファイルにしたら、`.zshrc`に`source ~/hogehoge`と書く二度手間が生じます。
+fishは`conf.d`ディレクトリのファイルを勝手に読みに行ってくれます。
+ただし、`conf.d`ディレクトリのファイルは`config.fish`より先に読み込みますのでパスが通ってません。その点は注意してください。
+
+[^4]: 環境変数`EDITOR`は`less`コマンドでvを押した時などに開くエディタを設定します。
+
+## キーバインド
+
+<!-- TODO: -->
+## まとめ
+
+- PATHは旧シェルからワンライナーで抜き出し、`config.fish`に貼る
+- 環境変数、evalもワンライナーでコピペ
+
+
+### 読み込み順
+
+|                                 |                                         |
+|:--------------------------------|:----------------------------------------|
+| $__fish_data_dir//config.fish   | /usr/local/Cellar/fish/3.3.1/share/fish |
+| $__fish_sysconf_dir/config.fish | /usr/local/Cellar/fish/3.3.1/etc/fish   |
+| $XDG_CONFIG_HOME/fish/conf.d    | なし(defaultは`~/.config/fish/conf.d/`)    |
+| $__fish_sysconf_dir/conf.d      |                                         |
+| $__fish_data_dir/conf.d         |                                         |
+| ~/.config/fish/config.fish      |                                         |
+|                                 |                                         |
