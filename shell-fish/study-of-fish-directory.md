@@ -23,9 +23,22 @@ fish独自の関数(?)全てバイナリ。
 
 ### fish_indent
 
-fishファイルを整形して、元のファイルの書き換えやhtml出力をするコマンド。未検証。
+fishファイルを整形して、元のファイルの書き換えやhtml出力をするコマンド。
 
 [fish_indent:fishスクリプトを整形する5つの方法](http://fish.rubikitch.com/fish_indent/)
+
+```bash
+> fish_indent -w ~/.config/fish/functions/words.fish
+
+> functions words
+# Defined in /Users/atu/.config/fish/functions/words.fish @ line 1
+function words
+    cat /usr/share/dict/words | fzf | pbcopy
+end
+```
+
+`cat /usr/share/dict/words | fzf| pbcopy`だったのが
+`cat /usr/share/dict/words | fzf | pbcopy`に整形された。
 
 ### fish_key_reader
 
