@@ -34,6 +34,7 @@ macos
 - [/dev/nullについて](shell-fish/devnull.md)
 - [fish-ghq](shell-fish/fish-ghq.md)
 - [fishtape](shell-fish/fishtape.md)
+- [fisherは何をしているのか](shell-fish/how-to-fishers-work.md)
 - [TILのREADMEを自動作成するfish scriptを書いた](shell-fish/howto-make-readme-with-til.md)
 - [my functions](shell-fish/my-functions.md)
 - [るびきちさん](shell-fish/rubikitch.md)
