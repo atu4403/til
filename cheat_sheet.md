@@ -70,3 +70,15 @@ Hyper: capslock
 | ⌃z         | undo             |
 | ⌥/         | redo             |
 | ⌥backspace | 単語単位で削除    |
+
+### fzf(絞り込み)
+
+| Token     | Match type                 | Description       |
+|-----------|----------------------------|-------------------|
+| `sbtrkt`  | fuzzy-match                | `sbtrkt`であいまい検索 |
+| `'wild`   | exact-match (quoted)       | `wild`で完全一致   |
+| `^music`  | prefix-exact-match         | `music`で始まる      |
+| `.mp3$`   | suffix-exact-match         | `.mp3`で終わる       |
+| `!fire`   | inverse-exact-match        | `fire`を含まない      |
+| `!^music` | inverse-prefix-exact-match | `music`で始まらない    |
+| `!.mp3$`  | inverse-suffix-exact-match | `.mp3`で終わらない     |
