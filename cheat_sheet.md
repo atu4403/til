@@ -19,6 +19,17 @@ Search git status | Ctrl+Alt+S (S for status)   | --git_status
 Search history    | Ctrl+R     (R for reverse)  | --history
 Search variables  | Ctrl+V     (V for variable) | --variables
 
+### [jethrokuan/fzf: Ef-🐟-ient fish keybindings for fzf](https://github.com/jethrokuan/fzf)
+
+| Legacy      | New Keybindings | Remarks                            |
+|-------------|-----------------|------------------------------------|
+| Ctrl-t      | Ctrl-o          | file or directoryを探してコマンドラインに表示 |
+| Ctrl-r      | Ctrl-r          | Search through command history.    |
+| Alt-c       | Alt-c           | 再帰的にcd                          |
+| Alt-Shift-c | Alt-Shift-c     | 再帰的にcd (隠しファイルも含む)            |
+| Ctrl-o      | Alt-o           | $EDITORで開く                        |
+| Ctrl-g      | Alt-Shift-o     | open commandで開く                   |
+
 ### vscode
 
 |     |                    |
