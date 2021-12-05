@@ -32,11 +32,11 @@ macos
 
 - [about fish](shell-fish/about.md)
 - [/dev/nullについて](shell-fish/devnull.md)
-- [fish-ghq](shell-fish/fish-ghq.md)
 - [fishtape](shell-fish/fishtape.md)
 - [fisherは何をしているのか](shell-fish/how-to-fishers-work.md)
 - [TILのREADMEを自動作成するfish scriptを書いた](shell-fish/howto-make-readme-with-til.md)
 - [my functions](shell-fish/my-functions.md)
+- [fish - plugins](shell-fish/plugins.md)
 - [るびきちさん](shell-fish/rubikitch.md)
 - [set (fish 3.3.1)](shell-fish/set.md)
 - [fish - ディレクトリを表す変数の調査](shell-fish/study-of-fish-directory.md)
