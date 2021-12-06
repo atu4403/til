@@ -24,6 +24,10 @@ macos
 - [`foo.md`と一緒にコミットされた過去の有るファイルをリスト化する方法](cli-git/howto-git_log_case_01.md)
 - [git log](cli-git/log.md)
 
+### doubt
+
+- [シェルでfzfやpecoにキーバインドを設定することに対する疑問](doubt/fzf_key_bindings.md)
+
 ### editor-vscode
 
 - [Awasome Extentions - VScode](editor-vscode/awasome_extentions_2021.md)
