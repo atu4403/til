@@ -14,7 +14,6 @@
 - `Automatically enter copy mode on Shift+Arrow Key with selection`に✔で選択範囲が有る時に`shift + 左右`でコピーモードに移行する
 - コピーモード時に`ctrl+k`で選択範囲のコピー
 
-
 ## キーバインド
 
 |              |               |
