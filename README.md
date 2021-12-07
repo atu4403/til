@@ -39,7 +39,7 @@ macos
 - [fishtape](shell-fish/fishtape.md)
 - [fisherは何をしているのか](shell-fish/how-to-fishers-work.md)
 - [TILのREADMEを自動作成するfish scriptを書いた](shell-fish/howto-make-readme-with-til.md)
-- [my functions](shell-fish/my-functions.md)
+- [fishのオリジナル関数](shell-fish/my-functions.md)
 - [fish - plugins](shell-fish/plugins.md)
 - [るびきちさん](shell-fish/rubikitch.md)
 - [set (fish 3.3.1)](shell-fish/set.md)
@@ -50,3 +50,7 @@ macos
 - [shortcuts - fish shell](shortcut/fish.md)
 - [shortcuts - macos](shortcut/macos.md)
 - [shortcuts - vscode](shortcut/vscode.md)
+
+### tools
+
+- [iTerm2のいろいろ](tools/iTerm2.md)
