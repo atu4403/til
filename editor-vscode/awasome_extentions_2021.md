@@ -5,15 +5,21 @@ VScodeのオススメ機能拡張です。2021年12月版。
 - 100万回以上ダウンロードされてる有名どころは除外してます
 - ☁️で始まる数字は2021年12月1日時点でのダウンロード数
 
-## [Bracket Select - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=chunsen.bracket-select)
+## [Bracket Select](https://marketplace.visualstudio.com/items?itemName=chunsen.bracket-select)
 
 ☁️ 36,075
 
 括弧やクォーテーション内のテキストをショートカット一発で選択。括弧を含む含まないどっちも可能。マルチセレクトにも対応。
 
+|           |               |
+|:----------|:--------------|
+| alt+a     | 括弧内を選択   |
+| alt+cmd+a | 括弧も含めて選択 |
+| alt+z     | 選択を戻す      |
+
 ![alt](https://github.com/wangchunsen/vscode-bracket-select/raw/master/bracket-select.gif)
 
-## [Conventional Commits - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=vivaxy.vscode-conventional-commits)
+## [Conventional Commits](https://marketplace.visualstudio.com/items?itemName=vivaxy.vscode-conventional-commits)
 
 ☁️ 50,294
 
@@ -21,13 +27,13 @@ gitのコミットメッセージ規約である[Conventional Commits](https://w
 
 ![alt](https://github.com/vivaxy/vscode-conventional-commits/raw/master/assets/docs/demo.gif)
 
-## [Fish - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=bmalehorn.vscode-fish)
+## [Fish](https://marketplace.visualstudio.com/items?itemName=bmalehorn.vscode-fish)
 
 ☁️ 13,763
 
 fish scriptのコードハイライト、lint, formatに対応。別の機能拡張のほうが人気だがこっちのほうが高機能。
 
-## [Incrementor - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=nmsmith89.incrementor)
+## [Incrementor](https://marketplace.visualstudio.com/items?itemName=nmsmith89.incrementor)
 
 ☁️ 31,515
 
@@ -64,7 +70,7 @@ defaultのキー設定。
 }
 ```
 
-## [Insert Date String - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=jsynowiec.vscode-insertdatestring)
+## [Insert Date String](https://marketplace.visualstudio.com/items?itemName=jsynowiec.vscode-insertdatestring)
 
 ☁️ 51,336
 
@@ -76,7 +82,7 @@ defaultのキー設定。
 - Insert Timestamp - Inserts current timestamp in milliseconds at the cursor position.
 - Insert Formatted DateTime (⇧+⌘+⌥+I on OS X, Ctrl+Alt+Shift+I on Windows and Linux) - Prompt user for format and insert formatted date and/or time at the cursor position.
 
-## [Markdown Table Maker - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=hellorusk.markdown-table-maker)
+## [Markdown Table Maker](https://marketplace.visualstudio.com/items?itemName=hellorusk.markdown-table-maker)
 
 ☁️ 1,130
 
@@ -88,15 +94,15 @@ markdownの表をカンタンに作成。
 
 > [Markdown のテーブルを直感的に生成できる VSCode の拡張機能を作った - Qiita](https://qiita.com/HelloRusk/items/d044e64918fa9bd4c92a)
 
-## [Markdown Table Prettifier - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=darkriszty.markdown-table-prettify)
+## [Markdown Table Prettifier](https://marketplace.visualstudio.com/items?itemName=darkriszty.markdown-table-prettify)
 
 ☁️ 99,705
 
 markdownの表をカンタンに整形。設定の`format on save`を有効化していれば保存時に整形してくれる。
 
-![Markdown Table Prettifier - Visual Studio Marketplace](https://github.com/darkriszty/MarkdownTablePrettify-VSCodeExt/raw/HEAD/assets/animation.gif)
+![Markdown Table Prettifier](https://github.com/darkriszty/MarkdownTablePrettify-VSCodeExt/raw/HEAD/assets/animation.gif)
 
-## [Paste Image - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=mushan.vscode-paste-image)
+## [Paste Image](https://marketplace.visualstudio.com/items?itemName=mushan.vscode-paste-image)
 
 クリップボード内の画像を保存してmarkdownの画像リンクを生成してくれる。神ツール。
 
@@ -104,7 +110,7 @@ markdownの表をカンタンに整形。設定の`format on save`を有効化�
 
 ![alt](https://raw.githubusercontent.com/mushanshitiancai/vscode-paste-image/master/res/vscode-paste-image.gif)
 
-## [markdownlint - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+## [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
 
 ☁  3,125,461
 
@@ -124,7 +130,7 @@ $ ls
 
 これはルール違反になり警告が出ます。`$`はプロンプトであり、このような記述には不要です。
 
-GitHubやqiitaではコードブロックの右上にコピーできるボタンが付いています。ユーザー(記事を見に来た人)はコードブロックをコピーして自分の環境にペーストするという需要があります。しかし`$`は実行するには不要であり、ユーザーには取り除く手間が生じます。
+GitHubやqiitaではコードブロックの右上にコピーできるボタンが付いています。ユーザー(記事を見に来た人)はコードブロックをコピーして自分の環境にペーストしたいという需要があります。しかし`$`は実行するには不要であり、ユーザーには取り除く手間が生じます。
 
 実際に色んな方の記事を見ていると、コピペしにくい`$`が付いた例が多く見られます。
 
