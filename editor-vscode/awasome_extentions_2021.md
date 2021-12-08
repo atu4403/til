@@ -1,5 +1,7 @@
 # Awasome Extentions - VScode
 
+zennに投稿済: [マイナーだけどオススメなvscode機能拡張 2021](https://zenn.dev/atu4403/articles/vscode_awasome_extentions_2021)
+
 VScodeのオススメ機能拡張です。2021年12月版。
 
 - 100万回以上ダウンロードされてる有名どころは除外してます
