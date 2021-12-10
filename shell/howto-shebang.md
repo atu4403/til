@@ -18,7 +18,7 @@ shebang(シバン、シェバン)について完全に理解した[^1]のでま�
 どのインタプリタで実行されているのかは`iterm2`の`Toolbelt` > `jobs`で確認しました。
 (常に`fish`が表示されていますが、これはshellが`fish`なので関係ありません)
 
-![alt](../images/other/jobs_01.gif)
+![alt](../images/howto-shebang/jobs.gif)
 
 シバンが無い状態では`sh`で実行されています。
 
