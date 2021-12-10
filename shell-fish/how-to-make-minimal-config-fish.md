@@ -1,5 +1,6 @@
 # WIP
-<!-- # 最小限のconfig.fishの作り方 -->
+
+## 最小限のconfig.fishの作り方
 
 - そもそも`.zshrc`や`.bashrc`は必要不可欠
 - fishはユニバーサル変数によりPATH等が永続化できるので設定不要？
@@ -14,9 +15,8 @@
 - 関数
 - lscolors
 - プロンプト
-- キーバインド
+- キーバインド: fish_user_key_bindings
 - sourceによる読み込み
 - evalによる読み込み
 - historyの設定
 - alias
-
