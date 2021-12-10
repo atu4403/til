@@ -32,6 +32,10 @@ macos
 
 - [Awasome Extentions - VScode](editor-vscode/awasome_extentions_2021.md)
 
+### shell
+
+- [shebang（シバン）について最低限覚えておきたいこと](shell/howto-shebang.md)
+
 ### shell-fish
 
 - [about fish](shell-fish/about.md)
