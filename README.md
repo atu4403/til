@@ -34,6 +34,7 @@ macos
 
 ### shell
 
+- [いろいろなコマンド](shell/commands.md)
 - [shebang（シバン）について最低限覚えておきたいこと](shell/howto-shebang.md)
 
 ### shell-fish
