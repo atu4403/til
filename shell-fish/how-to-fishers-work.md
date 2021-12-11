@@ -31,7 +31,7 @@ curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
 ここでは`fisher`という名のfish関数が定義されており、`source`に渡すことで関数を呼び出せるようにしている。
 
-しかしこのままではシェルを閉じたら関数は使えなくなってしまうので、後半部分の`fisher install jorgebucaran/fisher`により自信をインストールしている。
+しかしこのままではシェルを閉じたら関数は使えなくなってしまうので、後半部分の`fisher install jorgebucaran/fisher`により自身をインストールしている。
 
 ## `fisher install`は何をしているのか
 
