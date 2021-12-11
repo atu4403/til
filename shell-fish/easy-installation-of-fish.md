@@ -2,20 +2,31 @@
 
 <!-- # zshからfishへの移行ガイド -->
 
-**fish shell**のインストールや初期設定の解説サイトは多数ありますが、以下の点に難があります。
+## はじめに
 
-- 現在使っているshell(bashやzsh)の設定を捨てて、新たにfish流の設定をする事が前提になっている
-- 「プラグインマネージャの**fisher**を使いましょう」って言われても使いたくない
+**fish shell**は何の設定もなしに様々な機能があり、とても良いshellです。
 
-fishは未設定でも補完が凄いけど、現在のshellで使ってる`bat`や`exa`は未設定では使えません。それがわかった瞬間にfishを投げ捨てたくなります。
-また、**fisher**使えとの解説が当たり前過ぎて「じゃあfisherって具体的に何してくれるの?」と解説したサイトはあまりありません。
+と言われても、現在の`zsh`や`bash`に不満がないなら`fish`への以降は手間でしかありません。
 
-この記事では「現在のshellでの設定を引き継ぐ方法」「設定しなくてもできること」を極力「fisherを使わずに」解説していきたいと思います。
+**fish shell**のインストールや初期設定の解説サイトは多数ありますが、そのほとんどが**現在使っているshell(bashやzsh)の設定を捨てて、新たにfish流の設定をする**という流れになっています。
+
+当記事は`.zshrc`や`.bashrc`を引き継ぐためのチュートリアルになっています。
+
+また、解説サイトでは「プラグインマネージャの**fisher**を使いましょう」と書いているものが多いのですが、そのデメリットについてはあまり触れられていません。
+
+この記事では極力「fisherを使わずに」設定する方法を解説していきたいと思います。
 
 ## config.fishの確認
 
-この記事ではfishのインストール方法には触れません。
-fishがインストール済みか確認のためshellに`fish`と打ち込んでください。
+この記事ではfishのインストール方法やログインシェルの設定には触れません。
+また、`fish`のバージョン3.3.1についての解説になります。
+
+```bash
+> fish --version
+fish, version 3.3.1
+```
+
+`fish shell`を起動させるいちばん簡単な方法は、コマンドラインに`fish`と打つだけです。
 
 ```bash
 > fish
@@ -23,35 +34,49 @@ Welcome to fish, the friendly interactive shell
 Type help for instructions on how to use fish
 ```
 
-上のようになればfishはインストールされています。
+`fish`を起動すると自動的に設定ファイルが作られます。ほとんどの場合`~/.config/fish`ディレクトリに設定されます。
 
-次に設定ディレクトリを確認します。
-
-```bash
-ls ~/.config/fish
-```
-
-表示の中に`config.fish`があればOKです。zshの`.zshrc`に代わる設定ファイルです。もし`No such file or directory`と出たら以下のコマンドを入力してください。
+また、このディレクトリは変数`__fish_config_dir`に設定されます。中身を見てみましょう
 
 ```bash
-echo $__fish_config_dir
+> tree --dirsfirst $__fish_config_dir
+/Users/atu/.config/fish/
+├── completions
+├── conf.d
+├── functions
+├── config.fish
+└── fish_variables
 ```
 
-表示されるパスがfishの設定ディレクトリになります。
+上から３つがディレクトリ、下の2つがファイルです。
+
+| name           | type |              |
+|:---------------|:-----|:-------------|
+| completions    | d    | 補完ファイルを置く |
+| conf.d         | d    | 設定ファイルを置く |
+| functions      | d    | 関数を置く     |
+| config.fish    | f    | 設定ファイル     |
+| fish_variables | f    | 変数ファイル     |
+
+`.zshrc`や`.bashrc`にあたるのが`config.fish`です。ここに設定を書いていきます。
+
+`fish_variables`は永続化する変数を保存しておくファイルです。しかし設定はコマンドから行うので直接ファイルを編集することはありません。
 
 ※ 以降は設定ディレクトリが`~/.config/fish`にあるものとして話を進めます。
 
-## pathを通す
+## 環境変数とeval
 
-現在のshellで使ってる`bat`や`exa`が使えないのはpathが通ってないからです。とはいえ`.zshrc`を開いてあちこちに散らばっているpath設定を探すのは面倒です。
+### PATH
 
-カンタンな方法として、以下のコマンドを**現在のshell(bash,zsh)で**打ち込んでください。
+初期状態の`fish`ではいつも使っているコマンドが使えないことがあると思います。それはPATHが通っていないからです。
+
+移行前のshell(zshやbash)を開いてください。コマンドラインに`echo $PATH`と入力すると全てのPATHが表示されます。これを`fish`用に置き換えるワンライナーを用意しました。
 
 ```bash
 echo $PATH|awk -v 'RS=:' '{printf("set -x PATH %s $PATH\n", $1)}'|tac
 ```
 
-以下のような出力がありますので、`~/.config/fish/config.fish`にコピペしてください。
+実行すると以下のような出力がありますので、`config.fish`にコピペしてください。
 
 ```bash
 set -x PATH /Users/atu/bin $PATH
@@ -73,7 +98,10 @@ set -x PATH /Users/atu/.goenv/shims $PATH
 set -x PATH /Users/atu/.volta/bin $PATH
 ```
 
-この設定により、fishでも使い慣れたコマンドが使えるようになります。
+この設定によりパスが通り、fishでも使い慣れたコマンドが使えるようになります。
+
+> - このワンライナーでは複数行の出力になっています。fishでは1行で書くこともできますが、わかりやすいように複数行にしています
+> - 上の例は私のzsh環境で行ったものです。よく見ると同じパスが重複しています。また、現在は使わないパスも入っています。この機会に整理してください。
 
 <!-- - TODO:変数は配列 -->
 
@@ -177,7 +205,8 @@ end
 
 fishにも`alias`というコマンドは存在するのですが、実態はfunctionを作成するラッパーです。公式では「互換性のためにaliasも使えるようにしてるけど、できればfunctionを使ってね」と言っています。
 
-[alias - create a function — fish-shell 3.3.1 documentation](file:///usr/local/Cellar/fish/3.3.1/share/doc/fish/cmds/alias.html)
+[alias - create a function — fish-shell 3.3.1 documentation](https://fishshell.com/docs/current/cmds/alias.html)
+
 
 また、aliasの代わりに`abbr`を使うと便利です。私は`abbr`がaliasの代わりとして十分だと思いますのでaliasの説明は以上になります。
 
