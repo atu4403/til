@@ -2,6 +2,8 @@
 
 til - Today I learned.
 
+[![GitHub stats](https://github-readme-stats.vercel.app/api?username=atu4403&show_icons=true&theme=github_dark)](https://github.com/atu4403)
+
 ## 環境
 
 macos
@@ -31,6 +33,10 @@ macos
 ### editor-vscode
 
 - [Awasome Extentions - VScode](editor-vscode/awasome_extentions_2021.md)
+
+### oss
+
+- [github-readme-stats](oss/github-readme-stats.md)
 
 ### shell
 
