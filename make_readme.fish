@@ -5,6 +5,8 @@ function make_readme
 
 til - Today I learned.
 
+[![GitHub stats](https://github-readme-stats.vercel.app/api?username=atu4403&show_icons=true&theme=github_dark)](https://github.com/atu4403)
+
 ## 環境
 
 macos
