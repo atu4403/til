@@ -26,6 +26,11 @@ macos
 - [`foo.md`と一緒にコミットされた過去の有るファイルをリスト化する方法](cli-git/howto-git_log_case_01.md)
 - [git log](cli-git/log.md)
 
+### cli-ssh
+
+- [about ssh](cli-ssh/about.md)
+- [vscode-remote-explorer](cli-ssh/remote-explorer.md)
+
 ### doubt
 
 - [シェルでfzfやpecoにキーバインドを設定することに対する疑問](doubt/fzf_key_bindings.md)
