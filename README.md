@@ -39,6 +39,10 @@ macos
 
 - [Awasome Extentions - VScode](editor-vscode/awasome_extentions_2021.md)
 
+### lang-python
+
+- [pytestあれこれ](lang-python/pytest.md)
+
 ### oss
 
 - [github-readme-stats](oss/github-readme-stats.md)
