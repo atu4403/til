@@ -31,6 +31,10 @@ macos
 - [about ssh](cli-ssh/about.md)
 - [vscode-remote-explorer](cli-ssh/remote-explorer.md)
 
+### db
+
+- [mongodbで新規ユーザ作成](db/mongo-createuser.md)
+
 ### doubt
 
 - [シェルでfzfやpecoにキーバインドを設定することに対する疑問](doubt/fzf_key_bindings.md)
