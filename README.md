@@ -24,7 +24,7 @@ macos
 
 - [git about](cli-git/about.md)
 - [プルリク送ったけどコミットメッセージを修正したい](cli-git/howto-amend-branch-with-pull-request.md)
-- [GitHub actionsでCIを行う時にコミットログを汚さない方法](cli-git/howto-clean-commit-log-with-github-actions.md)
+- [GitHub Actionsで設定を行う時にコミットログを汚さない方法](cli-git/howto-clean-commit-log-with-github-actions.md)
 - [`foo.md`と一緒にコミットされた過去の有るファイルをリスト化する方法](cli-git/howto-git_log_case_01.md)
 - [git log](cli-git/log.md)
 
