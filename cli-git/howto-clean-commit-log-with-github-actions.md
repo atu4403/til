@@ -1,6 +1,6 @@
-# GitHub actionsでCIを行う時にコミットログを汚さない方法
+# GitHub Actionsで設定を行う時にコミットログを汚さない方法
 
-GitHub ActionsをCIとして使う場合、設定のymlファイルの書き間違いでtestが通らないことが多々あります。GitHubにpushしないと失敗がわからないので何度もcommit & pushを繰り返して、コミットログが汚れます。
+GitHub ActionsをCI等で使う場合、設定のymlファイルの書き間違いでエラーになることが多々あります。GitHubにpushしないと失敗がわからないので何度もcommit & pushを繰り返して、コミットログが汚れます。
 
 このような問題に対処する方法をシェアします。
 
