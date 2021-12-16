@@ -56,10 +56,16 @@ mongoshは`javascript`を読み込めるのでjsで書く。文法はシェル�
 - `-f`で読み込むファイルを指定
 
 ```bash
-mongosh "mongodb://192.168.0.99/admin" -f mongouser.js
+mongosh "mongodb://username:password@192.168.0.99/admin" -f mongouser.js
 ```
 
 mongoが`localhost`にあるなら`mongodb://localhost/admin`もしくは`admin`だけでも良いはず（未確認）
+
+パスワードを手入力したい場合は以下のようにもできる。
+
+```bash
+mongosh --host 192.168.0.99 --username atu4403 --port 12345 -f mongouser.js admin
+```
 
 ログにエラーが出ていなければユーザ作成ができているはずなので、実際にログインして確認。
 
