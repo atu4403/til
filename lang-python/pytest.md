@@ -21,6 +21,25 @@ def url():
         return "mongodb://root:example@localhost/?authMechanism=DEFAULT"
 ```
 
+jsonを使う場合
+
+```python
+@pytest.fixture()
+def settings():
+    settings_path = Path.home() / '.config/mongos/test_settings.json'
+    if settings_path.exists():
+        return json.loads(settings_path.read_text())
+    else:
+        return {
+            "username": "testuser",
+            "password": "testpass",
+            "host": "localhost",
+            "port": 12345,
+            "coll_name": "test_collenction",
+            "db_name": "test_db"
+        }
+```
+
 ## plugins
 
 pytestとは別のサードパーティパッケージ集
