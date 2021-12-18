@@ -14,3 +14,31 @@ gitに関する断片的な知見
 ```bash
 git branch --show-current
 ```
+
+## git statusがcleanか確認する方法(fish)
+
+```bash
+# git管理内か確認
+git rev-parse --is-inside-work-tree
+# gitがdirtyでないなら出力なし
+# string lengthは文字数が1以上ならtrueなので反転させる
+git status --short | string length
+```
+
+string lengthがちょっとややこしい。
+
+| 文字数 | 終了ステータス |
+|:-------|:----------|
+| 1以上  | 0         |
+| 0      | 1以上     |
+
+```bash
+function git_is_clean
+    if git rev-parse --is-inside-work-tree >/dev/null 2>&1
+        if ! git status --short | string length >/dev/null 2>&1
+            return 0
+        end
+    end
+    return 1
+end
+```
