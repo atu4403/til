@@ -41,8 +41,8 @@ poetry publish --build
 ### 4. pyproject.tomlに変更があるのでcommit & push
 
 ```bash
-git add pyproject.toml
-git commit
+git add -a
+git commit -m "update version $next_version"
 git checkout main
 git merge <ブランチ名>
 ```
