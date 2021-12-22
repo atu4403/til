@@ -41,6 +41,10 @@ macos
 
 - [シェルでfzfやpecoにキーバインドを設定することに対する疑問](doubt/fzf_key_bindings.md)
 
+### editor
+
+- [micro](editor/micro.md)
+
 ### editor-vscode
 
 - [Awasome Extentions - VScode](editor-vscode/awasome_extentions_2021.md)
