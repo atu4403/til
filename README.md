@@ -88,6 +88,7 @@ macos
 
 ### web-service
 
+- [emojimix](web-service/emojimix.md)
 - [free-images](web-service/free-images.md)
 
 ### web-service-github
