@@ -31,7 +31,6 @@ mongoshは`javascript`を読み込めるのでjsで書く。文法はシェル�
 
 ```bash
 (function () {
-  db.auth('root', 'example');
   db.createUser({
     user: 'testuser2',
     pwd: 'testpass2',
@@ -40,23 +39,29 @@ mongoshは`javascript`を読み込めるのでjsで書く。文法はシェル�
 })();
 ```
 
+> gistに上げているのでcurlでダウンロードできます
+>
+> ```bash
+> curl -L https://git.io/JyTum > mongouser.js
+> ```
+
 ポイント
 
 - 即時実行関数として書く
-- adminへのアクセスとユーザ作成権限のあるユーザで認証する
-  - `db.auth('root', 'example')`の部分
-  - セキュリティ的にはこのようなユーザ名&パスワードは絶対ダメ
 - roleは適切に設定する必要があるが、読み書きだけなら`readWrite`でOK
   - [Built-In Roles — MongoDB Manual](https://docs.mongodb.com/manual/reference/built-in-roles/)
+- パスワード作成はpegenが便利
+  - pwgen 10 # 桁数を指定
 
 ## 実行
 
 - mongoshで実行
 - ユーザ情報はadminデータベースで一元管理するのが良いので`admin`を明示する
 - `-f`で読み込むファイルを指定
+- usernameとpasswordは、rootもしくはuser追加権限のあるもの
 
 ```bash
-mongosh "mongodb://username:password@192.168.0.99/admin" -f mongouser.js
+mongosh "mongodb://username:password@192.168.0.99:12345/admin" -f mongouser.js
 ```
 
 mongoが`localhost`にあるなら`mongodb://localhost/admin`もしくは`admin`だけでも良いはず（未確認）
@@ -65,6 +70,7 @@ mongoが`localhost`にあるなら`mongodb://localhost/admin`もしくは`admin`
 
 ```bash
 mongosh --host 192.168.0.99 --username atu4403 --port 12345 -f mongouser.js admin
+mongosh "mongodb://192.168.0.99:12345/admin" -u atu4403 -f mongouser.js
 ```
 
 ログにエラーが出ていなければユーザ作成ができているはずなので、実際にログインして確認。
@@ -84,7 +90,7 @@ MongoServerError: Authentication failed.
 pymongoでは以下のように接続する。`authSource`を指定しない場合はdefaultの`admin`にて認証が行われる。
 
 ```bash
-MongoClient('mongodb://testuser2:testpass2@192.168.0.99')
+MongoClient('mongodb://testuser2:testpass2@192.168.0.99:12345')
 ```
 
 ## まとめ
@@ -94,7 +100,6 @@ MongoClient('mongodb://testuser2:testpass2@192.168.0.99')
 
 ```bash
 (function () {
-  db.auth('root', 'example');
   db.createUser({
     user: 'testuser2',
     pwd: 'testpass2',
@@ -104,5 +109,5 @@ MongoClient('mongodb://testuser2:testpass2@192.168.0.99')
 ```
 
 ```bash
-mongosh "mongodb://192.168.0.99/admin" -f mongouser.js
+mongosh "mongodb://192.168.0.99:12345/admin" -u <username> -f mongouser.js
 ```
