@@ -26,6 +26,7 @@ macos
 - [プルリク送ったけどコミットメッセージを修正したい](cli-git/howto-amend-branch-with-pull-request.md)
 - [GitHub Actionsで設定を行う時にコミットログを汚さない方法](cli-git/howto-clean-commit-log-with-github-actions.md)
 - [`foo.md`と一緒にコミットされた過去の有るファイルをリスト化する方法](cli-git/howto-git_log_case_01.md)
+- [Conventional CommitsとSemantic VersioningとCHANGELOG](cli-git/howto_conventional-commits.md)
 - [git log](cli-git/log.md)
 
 ### cli-ssh
