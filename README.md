@@ -48,6 +48,7 @@ macos
 
 ### editor-vscode
 
+- [vscodeのatom-keymapをやめる](editor-vscode/atom_keymap.md)
 - [Awasome Extentions - VScode](editor-vscode/awasome_extentions_2021.md)
 
 ### lang-python
