@@ -4,52 +4,54 @@
 
 - localでの開発が終わり、testも通っている
 - main以外のブランチを切って作業している
+- GitHubFlowで運用する
+- pre-commitでmainへのcommitを禁止している
 
-## 手順(概要)
+### GitHubFlowのメリット
 
-1. GitHubにpushしてCIが通るか確認
-2. pyproject.tomlのバージョンを上げる
-3. poetry publish --build
-4. pyproject.tomlに変更があるのでcommit & push
-5. tagを付けてpush
+- localにmainブランチがいらない
+  - 開発時はorigin/mainからcheckoutすることでmainは不要
+  - なのでgit pullも不要
+- mainへの誤コミットがなくなる
 
-## 手順(コマンド)
+## 大まかな手順
 
-### 1. GitHubにpushしてCIが通るか確認
+1. pr作成
+1. prをmergeしてreleaseとpublish
 
-```bash
-git push origin <ブランチ名>
-```
+## 詳細な手順
 
-### 2. pyproject.tomlのバージョンを上げる
+### pr作成(poetry_pre_publish)
 
-```bash
-# バグ修正等
-poetry version patch
-# 新機能追加等
-poetry version minor
-# 破壊的変更を含む場合
-poetry version major
-```
+1. release用のブランチを切ってcheckout
+2. `git pull --rebase origin main`
+3. バージョンを上げる(major/minor/patch)
+4. `poetry build`
+5. 一時的にtag付け
+6. CHANGELOGを作成
+7. tagを削除
+8. エディタを開いてCHANGELOGの確認と修正
+9. ここまでの変更をcommit & push
+10. prの作成
+11. prを見てファイルの更新を確認
+12. prを見てバージョンが間違いないか確認
+13. prを見てCHANGELOGが間違いないか確認
+14. CIが通るか確認
 
-### 3. poetry publish --build
+解説
 
-```bash
-poetry publish --build
-```
+- 失敗した時はprをcloseしてrelease用ブランチを削除する
+- tagを一時的に付けているのはCHANGELOG作成に必要だから
 
-### 4. pyproject.tomlに変更があるのでcommit & push
+### prをmergeしてreleaseとpublish(poetry_pr_merge)
 
-```bash
-git add -a
-git commit -m "update version $next_version"
-git checkout main
-git merge <ブランチ名>
-```
+1. prをmerge
+2. `origin/main`から次の開発用のブランチにcheckout
+3. `git fetch --prune`
+4. GItHUbにreleaseを作成
+5. `poetry publish`
 
-### 5. tagを付けてpush
+解説
 
-```bash
-git tag v0.1.0 # 最新のコミットに対してtagを作成
-git push origin --tags
-```
+- pr mergeと共に不要なブランチは削除され、fetchと共にlocalの不要なブランチは削除される
+- release作成と共にtagも付けられる
