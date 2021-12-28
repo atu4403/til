@@ -42,3 +42,9 @@ function git_is_clean
     return 1
 end
 ```
+
+## git logでコミットに紐付いた更新ファイルを見る方法
+
+```bash
+git log --name-only --oneline
+```
