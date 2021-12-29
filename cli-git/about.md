@@ -48,3 +48,9 @@ end
 ```bash
 git log --name-only --oneline
 ```
+
+## コミットメッセージに`WIP`が含まれるものを見る方法
+
+```bash
+git log --name-only --grep "WIP" --oneline
+```
