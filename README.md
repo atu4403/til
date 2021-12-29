@@ -53,7 +53,7 @@ macos
 
 ### lang-python
 
-- [pypiにpublishする時の手順書](lang-python/pypi_update.md)
+- [poetryでpypiにpublishする時の手順書](lang-python/pypi_update.md)
 - [pytestあれこれ](lang-python/pytest.md)
 
 ### oss
