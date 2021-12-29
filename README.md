@@ -95,3 +95,4 @@ macos
 
 ### web-service-github
 
+- [GitHubあれこれ](web-service-github/about.md)
