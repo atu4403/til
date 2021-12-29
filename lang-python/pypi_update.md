@@ -1,11 +1,12 @@
-# pypiにpublishする時の手順書
+# poetryでpypiにpublishする時の手順書
 
 ## 前提条件
 
 - localでの開発が終わり、testも通っている
 - main以外のブランチを切って作業している
-- GitHubFlowで運用する
+- GitHubFlowで運用している
 - pre-commitでmainへのcommitを禁止している
+- 手順が多いので自動化させたい
 
 ### GitHubFlowのメリット
 
@@ -21,7 +22,9 @@
 
 ## 詳細な手順
 
-### pr作成(poetry_pre_publish)
+### pr作成
+
+[fish_conf/poetry_pre_publish.fish at main · atu4403/fish_conf](https://github.com/atu4403/fish_conf/blob/main/functions/poetry_pre_publish.fish)
 
 1. release用のブランチを切ってcheckout
 2. `git pull --rebase origin main`
@@ -43,7 +46,9 @@
 - 失敗した時はprをcloseしてrelease用ブランチを削除する
 - tagを一時的に付けているのはCHANGELOG作成に必要だから
 
-### prをmergeしてreleaseとpublish(poetry_pr_merge)
+### prをmergeしてreleaseとpublish
+
+[fish_conf/poetry_pr_merge.fish at main · atu4403/fish_conf](https://github.com/atu4403/fish_conf/blob/main/functions/poetry_pr_merge.fish)
 
 1. prをmerge
 2. `origin/main`から次の開発用のブランチにcheckout
