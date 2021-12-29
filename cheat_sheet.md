@@ -32,16 +32,20 @@ Search variables  | Ctrl+V     (V for variable) | --variables
 
 ### vscode
 
-|     |                    |
-|:----|:-------------------|
-| ⇧⌃g | ソースコントロール切替      |
-| ⇧⌘e | エクスプローラ切替        |
-| ⌘ \ | サイドバーのトグル          |
-| ⌥⌘a | brasel: 括弧選択   |
-| ⌥a  | brasel: 括弧内選択 |
-| ⌥z  | brasel: 選択解除   |
-| ⇧⌘d | 行を複製            |
-| ⇧⌘k | 行を削除            |
+|   | key | title                 | command                 |
+|:--|:----|:----------------------|:------------------------|
+| c | ⇧⌃f | エクスプローラ切替           | workbench.view.explorer |
+|   | ⇧⌃g | ソースコントロール切替         | workbench.view.scm      |
+| c | ⇧⌃d | 表示: 実行とデバッグ を表示 | workbench.view.debug    |
+|| ⌃` | 表示: ターミナル の切り替え    |workbench.action.terminal.toggleTerminal|
+|| ⌘ b | サイドバーのトグル          |workbench.action.toggleSidebarVisibility|
+|| ⌥⌘a | brasel: 括弧選択   |bracket-select.select|
+|| ⌥a  | brasel: 括弧内選択 |bracket-select.select-include|
+|| ⌥z  | brasel: 選択解除   |bracket-select.undo-select|
+|| ⇧⌘d | 行を複製            |editor.action.copyLinesDownAction|
+|| ⇧⌘k | 行を削除            |editor.action.deleteLines|
+|| ⇧⌘p | すべてのコマンドの表示            |workbench.action.showCommands|
+|| ⌘p | ファイルに移動...            |workbench.action.quickOpen|
 
 [Bracket Select - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=chunsen.bracket-select)
 
