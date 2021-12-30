@@ -16,6 +16,7 @@ macos
 
 ### cli
 
+- [よく使うコマンド](cli/about.md)
 - [新規プロジェクトにいつものファイルを準備するcookiecutter](cli/cookiecutter.md)
 - [gh](cli/gh.md)
 - [ghq](cli/ghq.md)
