@@ -19,6 +19,17 @@ Initialized empty Git repository in /Users/atu/ghq/github.com/atu4403/til/.git/
 /Users/atu/ghq/github.com/atu4403/til
 ```
 
+### with cookiecutter
+
+[cookiecutter](https://github.com/cookiecutter/cookiecutter)を使う場合は機能が被るので`ghq create`は使わない。
+
+```bash
+cd <ghq root>/github.com/<my name>
+cookeycutter <template url>
+cd <project_slug>
+git init
+```
+
 ## fish-ghq
 
 [til fish-ghq](../fish/fish-ghq.md)
