@@ -54,3 +54,15 @@ git log --name-only --oneline
 ```bash
 git log --name-only --grep "WIP" --oneline
 ```
+
+## 間違ってpushしたものを取り消す
+
+別ブランチで作業中にvscodeの「同期の変更」を押したらmainにpushされてしまった。
+
+![gitup](/images/about/2022-01-03-00-42-44.png)
+
+この場合、localのmainはv1.1.0のままなので、これを強制pushすると解決。
+
+```bash
+git push origin +main
+```
