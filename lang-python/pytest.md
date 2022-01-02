@@ -71,6 +71,18 @@ class TestVariable:
 pytest --doctest-modules
 ```
 
+### 前後処理
+
+fixtureでyieldする
+
+```python
+@pytest.fixture()
+def path(self):
+    # 前処理
+    yield 'path/to/file'
+    # 後処理
+```
+
 ### 値を隠蔽する
 
 例えばDBのtestに使うパスワードをGitHubに上げずに隠したい時のtips。環境変数を使う等色々な方法があるが、ローカルのファイルを使った方法。
@@ -93,6 +105,9 @@ def url():
 jsonを使う場合
 
 ```python
+import payhlib
+import json
+
 @pytest.fixture()
 def settings():
     settings_path = Path.home() / '.config/mongos/test_settings.json'
