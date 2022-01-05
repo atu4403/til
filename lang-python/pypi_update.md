@@ -43,8 +43,12 @@
 
 解説
 
-- 失敗した時はprをcloseしてrelease用ブランチを削除する
 - tagを一時的に付けているのはCHANGELOG作成に必要だから
+- 失敗した時はprをcloseしてrelease用ブランチを削除する
+
+```bash
+gh pr close -d release_poetry
+```
 
 ### prをmergeしてreleaseとpublish
 
