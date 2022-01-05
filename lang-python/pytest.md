@@ -136,8 +136,9 @@ import pytest
 
 @pytest.fixture
 def d(tmpdir) -> str:
-    tmpdir.chdir()
-    return
+    p = tmpdir.chdir()
+    yield
+    p.chdir()
 
 
 def test_tmpdir(d):
@@ -146,7 +147,6 @@ def test_tmpdir(d):
         a
         != "/private/var/folders/gc/1js4q5b53fjblxs9z0fsj17h0000gn/T/pytest-of-atu/pytest-7/test_tmpdir0"
     )
-
 ```
 
 - `assert a !=`としているのは毎回違うディレクトリが割り当てられるので。
