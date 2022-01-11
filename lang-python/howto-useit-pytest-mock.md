@@ -82,3 +82,28 @@ def test_mock(mocker):
 | reset_mock              | 呼び出された履歴をreset               |
 | call_args               | 最後に呼ばれた時の引数                |
 | call_args_list          | 呼出履歴の引数list                |
+
+## classのtest
+
+```python
+class AAA:
+    def __init__(self, name) -> None:
+        self.name = name
+
+    def bbb(self, age):
+        return f"{self.name} is age {age}"
+
+
+def test_class_instance(mocker):
+    mock = mocker.patch.object(AAA, "__init__", return_value=None)
+    ins = AAA("alice")
+    mock.assert_called_with("alice")
+
+
+def test_class_method(mocker):
+    mock = mocker.patch.object(AAA, "bbb", return_value=None)
+    ins = AAA("alice").bbb(3)
+    mock.assert_called_with(3)
+```
+
+後者の場合、insはmockではなくAAAのインスタンスになる。
