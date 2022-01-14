@@ -53,6 +53,25 @@ def test_each_files():
     pass
 ```
 
+### mark
+
+```python
+@pytest.mark.heavy
+def test_foo():
+    pass
+```
+
+```bash
+# pytest.ini
+[pytest]
+addopts = -vv --capture=no -m "not heavy" --strict-markers
+markers =
+    heavy: 重い処理を伴うtest
+```
+
+この設定により、通常の`pytest`ではheavyのtestは実行されない。
+heavyを実行する場合は`pytest -m heavy`とする。
+
 ### raises
 
 ```py
