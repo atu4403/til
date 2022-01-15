@@ -183,3 +183,28 @@ timeoutを設定する。pytest.iniに追記することで有効化する。以
 ```bash
 timeout = 5
 ```
+
+## errors
+
+GitHub Actionsでpytestを行うと、windowsでエラーが出た。
+
+```python
+  File "c:\hostedtoolcache\windows\python\3.8.10\x64\lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+  UnicodeDecodeError: 'charmap' codec can't decode byte 0x8d in position 94: character maps to <undefined>
+  Error: Process completed with exit code 1.
+```
+
+どうやらencodeがおかしいようで、pythonはutf8で読み込むようにする環境変数があるらしい。これを設定したら通った。
+
+.github/workflows/test.yml
+
+```yaml
+  with:
+    poetry-version: 1.0
+- run: |
+    export PYTHONUTF8=1
+    poetry install
+    poetry run pytest
+  shell: bash
+```
