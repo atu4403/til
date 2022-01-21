@@ -54,12 +54,16 @@ macos
 - [Awasome Extentions - VScode](editor-vscode/awasome_extentions_2021.md)
 - [vscodeのコマンド](editor-vscode/commands.md)
 
+### lang
+
+
 ### lang-python
 
 - [cerberus(validation framework)](lang-python/cerberus.md)
 - [pytest-mockの使い方](lang-python/howto-useit-pytest-mock.md)
 - [poetryでpypiにpublishする時の手順書](lang-python/pypi_update.md)
 - [pytestあれこれ](lang-python/pytest.md)
+- [pythonの正規表現](lang-python/regex.md)
 
 ### oss
 
