@@ -35,6 +35,11 @@ macos
 - [about ssh](cli-ssh/about.md)
 - [vscode-remote-explorer](cli-ssh/remote-explorer.md)
 
+### competitive-programming
+
+- [All Green](competitive-programming/atcoder-c-allgreen.md)
+- [pythonでビット全探索](competitive-programming/bit-search.md)
+
 ### db
 
 - [mongodbで新規ユーザ作成](db/mongo-createuser.md)
