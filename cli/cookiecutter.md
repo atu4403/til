@@ -79,5 +79,7 @@ abbreviations:
 通常では`project_slug`等で指定したディレクトリがすでに存在するとcookiecutterは何もしません。しかし`-f`オプションを付けるとディレクトリが存在しても上書きしてファイルを作成します。`ghq create`が行うのは`git init`だけなので重複せずにプロジェクトを作成できます。
 
 ```bash
+ghq create hoge
+cd ~/ghq/github.com/atu4403 #作成したhogeディレクトリの親ディレクトリに移動
 cookiecutter poetry -f
 ```
