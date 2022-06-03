@@ -37,8 +37,11 @@ macos
 
 ### competitive-programming
 
+- [累積和問題を解く](competitive-programming/accumulate.md)
 - [All Green](competitive-programming/atcoder-c-allgreen.md)
+- [AtCoder: C - Stones](competitive-programming/atcoder-tenka1_2019_c.md)
 - [pythonでビット全探索](competitive-programming/bit-search.md)
+- [10**9+7の処理](competitive-programming/mod7.md)
 
 ### db
 
@@ -65,10 +68,14 @@ macos
 ### lang-python
 
 - [cerberus(validation framework)](lang-python/cerberus.md)
+- [csvをsqliteに突っ込む方法](lang-python/csv-to-sqlite.md)
 - [pytest-mockの使い方](lang-python/howto-useit-pytest-mock.md)
 - [poetryでpypiにpublishする時の手順書](lang-python/pypi_update.md)
 - [pytestあれこれ](lang-python/pytest.md)
 - [pythonの正規表現](lang-python/regex.md)
+
+### os
+
 
 ### oss
 
