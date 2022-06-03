@@ -299,3 +299,69 @@ pythonでは上記２つの関数がビット全探索の代替になる。以�
 - [D - 派閥 (1418)](https://atcoder.jp/contests/abc002/tasks/abc002_4)
 
 > ちなみに、再帰関数を使った方が速い場合もあります
+
+## 追記
+
+上記2つの関数では解けない問題を見付けた。
+
+[C - Select Mul](https://atcoder.jp/contests/abc221/tasks/abc221_c)
+
+ビット全探索のフラグが立っている場合と立っていない場合の「処理を分ける」ではなく「それぞれの値を取る」ことが必要。
+
+```python
+N = input()
+mx = 0
+
+
+def bit_search(n):
+    li = range(n + 1)
+    for i in range(2 ** n):
+        ref, ref2 = [], []
+        for j in range(n):
+            if (i >> j) & 1:
+                ref.append(N[j])
+            else:
+                ref2.append(N[j])
+        yield ref, ref2
+
+
+for a, b in bit_search(len(N)):
+    if a and b and a[0] != "0" and b[0] != "0":
+        a = "".join(sorted(a, reverse=True))
+        b = "".join(sorted(b, reverse=True))
+        mx = max(mx, int(a) * int(b))
+print(mx)
+
+```
+
+これを無理やり`combinations`を使って解こうとすると以下のようになる。
+
+```python
+from itertools import combinations
+from copy import deepcopy
+
+
+N = input()
+mx = 0
+
+
+def comb_search2(it):
+    if type(it) == int:
+        it = list(range(it))
+    if type(it) == str:
+        it = list(it)
+    for i in range(len(it) + 1):
+        for t in combinations(range(len(it)), i):
+            l1, l2 = [], deepcopy(it)
+            for j in reversed(t):
+                l1 += [l2.pop(j)]
+            yield l1, l2
+
+
+for a, b in comb_search2(N):
+    if a and b and a[0] != "0" and b[0] != "0":
+        a = "".join(sorted(a, reverse=True))
+        b = "".join(sorted(b, reverse=True))
+        mx = max(mx, int(a) * int(b))
+print(mx)
+```
