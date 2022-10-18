@@ -11,7 +11,7 @@
 | <  | lt | less than                |
 | <= | le | less than or equal to    |
 | >  | gt | greater than             |
-| <= | ge | greater than or equal to |
+| >= | ge | greater than or equal to |
 
 ## shortcuts
 
