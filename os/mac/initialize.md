@@ -43,6 +43,7 @@ homebrewで旧macにインストールしているアプリケーションをリ
 1. homebrewのリストを作成
 2. Applicationsのリストを作成
 3. 2を参考に1のリストを修正
+4. 新macで1を読み込む
 
 ### 1. homebrewのリストを作成
 
@@ -83,11 +84,9 @@ mas "ForkLift", id: 412448059
 ここから不要なものを除外していきます。1行1アプリケーションなので、不要な行を消すだけです。
 
 このファイルにリスト化されるのはhomebrew経由でインストールしたもの、app atoreでインストールしたもののみです。
-手動でダウンロード→`/Applications`にコピーしてインストールしたものは含まれないので、`/Applications`ディレクトリから一覧を作り、リストに追加していきます。
+インストール済みのアプリのうち、手動でダウンロード→`/Applications`にコピーしてインストールしたものは含まれないので、`/Applications`ディレクトリから一覧を作り、リストに追加していきます。
 
 ### 2. Applicationsのリストを作成
-
-<!-- 3. 2を参考に1のリストを修正 -->
 
 ```bash
 ls -1 /Applications/
@@ -103,6 +102,8 @@ Utilities
 # 以下略
 ```
 
+### 3. 2を参考に1のリストを修正
+
 `Brewfile_test`に含まれないものを追加していきます。
 ただし`safari`や`Utilities`等はプリインストールされているので無視して構いません。
 
@@ -116,19 +117,35 @@ Utilities
 私の場合旧macがMojave(10.14)だったので1では調べられませんでした。
 そんな場合でも、2の方法で最新バージョン等まで調べられます。
 
+```bash
+cask "virtualbox"
+```
+
+このようにBrewfileを更新していきます。
+
+### 4. 4. 新macで1を読み込む
+
+homebrewをインストールします。
+
+[macOS（またはLinux）用パッケージマネージャー — Homebrew](https://brew.sh/index_ja)
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+
+1のファイルを`.Brewfile`に変更してHOMEディレクトリに置きます。`~/.Bruefile`です。
+
+
 ## 設定ファイルの移行
 
 設定を移行したいものをリストアップします。
 
 ```bash
 Alfred 4.app
-Authy Desktop.app
-Discord.app
 Karabiner-Elements.app
-KeePassX.app
 PopClip.app
 Visual Studio Code.app
-iTerm.app
 ```
 
 ### Alfred 4
@@ -142,17 +159,41 @@ iTerm.app
 
 とはいえiCloudに保存するのが便利そうなのでそうしました。
 
-新macで同じ操作をすると同期できます。
+新macで同じ操作をするとエラーになりました。iCloudDriveなので失敗したようです。適切な場所に(私は`~/.config`以下にしました)配置するとうまく行きました。
+しかし clipboardの設定が初期化されてたので再設定。
+
+![alfred clip](/images/initialize/2022-06-04-10-40-31.png)
+
+PowerPackのライセンスキーは過去のメールに書いてありました。「alfred」で検索すると見つかりました。
 
 ### karabiner-elements
 
 ![karabiner-elements](/images/initialize/2022-06-03-16-44-07.png)
 
-設定を開き、`Misc`→`Open Config folder`で保存場所を指定
+alfredと同じく`~/.config`以下にコピペしました。
+設定を開き、`Misc`→`Open Config folder`で指定。
 
 ### PopClip
 
 ![PopClip](/images/initialize/2022-06-03-16-47-55.png)
 
-設定を開き、手動で確認。
+設定を開き、手動で確認。必要なものを再インストール。
 
+### git
+
+`~/.gitconfig`を移行
+
+### fish
+
+`~/.config/fish`を移行
+
+## ターミナルからの設定
+
+```bash
+# キーリピート設定
+defaults write -g KeyRepeat -int 1
+defaults write -g InitialKeyRepeat -int 13
+# finderでドットファイルを可視化
+defaults write com.apple.finder AppleShowAllFiles TRUE
+killall Finder
+```
