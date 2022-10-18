@@ -2,6 +2,17 @@
 
 このチートシートはatu4403の個人的なものです。独自の設定をしている場合があるので動作は保証しません。
 
+## lt le gt ge
+
+|    |    |                          |
+|:---|:---|:-------------------------|
+| =  | eq | equal to                 |
+| != | ne | not equal to             |
+| <  | lt | less than                |
+| <= | le | less than or equal to    |
+| >  | gt | greater than             |
+| <= | ge | greater than or equal to |
+
 ## shortcuts
 
 - ⌘ - cmd
