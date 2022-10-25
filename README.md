@@ -69,6 +69,7 @@ macos
 
 - [cerberus(validation framework)](lang-python/cerberus.md)
 - [csvをsqliteに突っ込む方法](lang-python/csv-to-sqlite.md)
+- [fireを使って自分用CLIアプリケーションを作る方法](lang-python/fire_2022.md)
 - [pytest-mockの使い方](lang-python/howto-useit-pytest-mock.md)
 - [poetryでpypiにpublishする時の手順書](lang-python/pypi_update.md)
 - [pytestあれこれ](lang-python/pytest.md)
@@ -113,6 +114,7 @@ macos
 
 - [emojimix](web-service/emojimix.md)
 - [free-images](web-service/free-images.md)
+- [zennに記事をアップロードする方法](web-service/zenn_uoload.md)
 
 ### web-service-github
 
