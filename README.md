@@ -60,6 +60,7 @@ macos
 
 - [vscodeのatom-keymapをやめる](editor-vscode/atom_keymap.md)
 - [Awasome Extentions - VScode](editor-vscode/awasome_extentions_2021.md)
+- [Awasome Extentions - VScode (2022)](editor-vscode/awasome_extentions_2022.md)
 - [vscodeのコマンド](editor-vscode/commands.md)
 
 ### lang
