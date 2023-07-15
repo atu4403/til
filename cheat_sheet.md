@@ -108,3 +108,15 @@ Hyper: capslock
 | `!fire`   | inverse-exact-match        | `fire`を含まない      |
 | `!^music` | inverse-prefix-exact-match | `music`で始まらない    |
 | `!.mp3$`  | inverse-suffix-exact-match | `.mp3`で終わらない     |
+
+### その他
+
+fishに登録した関数を見る方法
+
+`functions`は関数の一覧
+`functions fed`とすればfedの中身を確認できる
+
+#### fed
+
+関数の登録と保存。るびきちさん作。
+[fed:【要注意】外部エディタで関数定義し永続化する](http://fish.rubikitch.com/fed-funced-funcsave/)
