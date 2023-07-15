@@ -120,3 +120,13 @@ fishに登録した関数を見る方法
 
 関数の登録と保存。るびきちさん作。
 [fed:【要注意】外部エディタで関数定義し永続化する](http://fish.rubikitch.com/fed-funced-funcsave/)
+
+例えば`vv`という関数を作る時は`fed vv`としてenterすると、以下のようになる。
+
+```bash
+> function vv
+         
+    end
+```
+
+空白部分に処理内容を書いてenterで登録完了。
